@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Think Of You The Most</title>
+  <!-- Serif Font for vintage paper look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Playfair Display', Georgia, serif;
+      /* Optional anime background image - defaults to dark theme if no bg.jpg exists */
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('bg.jpg') center/cover no-repeat #23201e;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 10px;
+    }
+
+    /* Paper Card Container */
+    .paper-card {
+      background-color: #eae5dc;
+      background-image: radial-gradient(#d3cbbe 1px, transparent 1px);
+      background-size: 16px 16px;
+      color: #2b2825;
+      width: 100%;
+      max-width: 440px;
+      padding: 30px 25px;
+      border-radius: 4px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      position: relative;
+      text-align: center;
+    }
+
+    /* Top Decorative Header */
+    .card-top {
+      text-align: right;
+      font-size: 0.75rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+      color: #5a544d;
+    }
+
+    .divider-ornament {
+      font-size: 0.8rem;
+      color: #3b3632;
+      letter-spacing: 8px;
+      margin-bottom: 12px;
+    }
+
+    /* Song Title */
+    .song-title {
+      font-size: 1.65rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #23201e;
+    }
+
+    /* Lyrics Section */
+    .lyrics {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      white-space: pre-line;
+      color: #3b3632;
+      margin-bottom: 30px;
+    }
+
+    /* Audio Player Controls */
+    .player-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Visualizer Waveform Graphic */
+    .waveform {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 25px;
+      margin-bottom: 5px;
+    }
+
+    .bar {
+      width: 3px;
+      background-color: #3b3632;
+      border-radius: 2px;
+    }
+
+    /* Interactive Progress Bar */
+    .progress-container {
+      width: 85%;
+      height: 3px;
+      background-color: #bebbb3;
+      cursor: pointer;
+      position: relative;
+      border-radius: 2px;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background-color: #23201e;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: -3.5px;
+      width: 10px;
+      height: 10px;
+      background-color: #23201e;
+      border-radius: 50%;
+    }
+
+    /* Control Buttons */
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 5px;
+    }
+
+    .btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #23201e;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.7;
+    }
+
+    .play-btn {
+      width: 44px;
+      height: 44px;
+      background-color: #23201e;
+      color: #eae5dc;
+      border-radius: 50%;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="paper-card">
+    <div class="card-top">By: Yung Kai</div>
+    <div class="divider-ornament">❖ ⬩ ❖</div>
+    <h1 class="song-title">I Think Of You The Most</h1>
+
+    <!-- Lyrics Text -->
+    <div class="lyrics">
+I'll paint our life
+With anything you want
+Take my hand
+Fireflies'll show the way
+So don't leave, know that I like you all the time
+Oh, I'll always come back to you
+You and the sky, I'm thinking of
+Count how many days 'til it's enough
+To make you fall in love
+I'll be your one
+Can it be this way?
+Oh my, oh my, oh my
+If I, if I, if I
+Were to let you go
+I'd be a fool
+I'll just wait for you
+'Cause I think of you the most
+Even if I know you won't
+Don't you think a life with me
+Could be alright?
+Guess I'll meet you in a place
+Where you might love me anyway
+But for now
+I'll stay right where we were
+    </div>
+
+    <!-- Custom Music Player -->
+    <div class="player-section">
+      <!-- Decorative Soundwave -->
+      <div class="waveform">
+        <div class="bar" style="height: 10px;"></div>
+        <div class="bar" style="height: 18px;"></div>
+        <div class="bar" style="height: 12px;"></div>
+        <div class="bar" style="height: 24px;"></div>
+        <div class="bar" style="height: 16px;"></div>
+        <div class="bar" style="height: 8px;"></div>
+        <div class="bar" style="height: 20px;"></div>
+        <div class="bar" style="height: 14px;"></div>
+        <div class="bar" style="height: 22px;"></div>
+        <div class="bar" style="height: 10px;"></div>
+      </div>
+
+      <!-- Scrubber Bar -->
+      <div class="progress-container" id="progress-container">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="controls">
+        <button class="btn" id="rewind-btn">◀◀</button>
+        <button class="btn play-btn" id="play-btn">▶</button>
+        <button class="btn" id="forward-btn">▶▶</button>
+      </div>
+    </div>
+
+    <!-- Hidden Audio Engine -->
+    <audio id="audio-player" src="song.mp3"></audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio-player');
+    const playBtn = document.getElementById('play-btn');
+    const rewindBtn = document.getElementById('rewind-btn');
+    const forwardBtn = document.getElementById('forward-btn');
+    const progressContainer = document.getElementById('progress-container');
+    const progressFill = document.getElementById('progress-fill');
+
+    // Play/Pause Toggle
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playBtn.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playBtn.textContent = '▶';
+      }
+    });
+
+    // Update progress bar as audio plays
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const percentage = (audio.currentTime / audio.duration) * 100;
+        progressFill.style.width = percentage + '%';
+      }
+    });
+
+    // Seek track on progress bar click
+    progressContainer.addEventListener('click', (e) => {
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      audio.currentTime = (clickX / width) * audio.duration;
+    });
+
+    // Rewind 5 seconds
+    rewindBtn.addEventListener('click', () => {
+      audio.currentTime = Math.max(0, audio.currentTime - 5);
+    });
+
+    // Fast Forward 5 seconds
+    forwardBtn.addEventListener('click', () => {
+      audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
+    });
+  </script>
+
+</body>
+</html>
